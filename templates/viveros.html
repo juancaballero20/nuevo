@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viveros en Bogotá</title>
+    <link rel="stylesheet" href="{% static 'estilo/viveros.css' %}">
+    
+</head>
+</html>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="{% static 'images/nombre_iniciales.png' %}" alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+                <li><a href="{% url 'sembrado' %}">Sembrado</a></li>
+                <li><a href="{% url 'viveros' %}">Viveros</a></li>
+
+            </ul>
+            <div class="icons">
+                <a href="#"><img src="{% static 'images/persona.png' %}" alt="Idioma"></a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Usuario</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'registro' %}" id="register-link">Registrarse</a>
+                        <a href="{% url 'iniciar' %}" id="login-link">Iniciar Sesión</a>    
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <section>
+        <h2>Mejores viveros en Bogotá</h2>
+
+        <div class="vivero">
+            <h2>Vivero Crisalide</h2>
+            <img src="{% static 'images/Vivero Crisalide.jpg' %}" alt="Descripción de la imagen 1">
+            <p class="direccion">Dirección:  Cl 62 #1-21, Bogotá</p>
+        </div>
+    
+        <div class="vivero">
+            <h2>Materarte Vivero
+            </h2>
+            <img src="{% static 'images/Materarte Vivero.jpg' %}" alt="Descripción de la imagen 2">
+            <p class="direccion">Dirección: Cra. 12 #115 - 06, Bogotá</p>
+        </div>
+    
+        <div class="vivero">
+            <h2>MY GARDEN
+            </h2>
+            <img src="{% static 'images/Avenida 45 #10-11 my garden.jpg' %}" alt="Descripción de la imagen 3">
+            <p class="direccion">Dirección: Avenida 45 #10-11</p>
+        </div>
+        <div class="vivero">
+            <h2>Vivero Reserva Natural
+            </h2>
+            <img src="{% static 'images/vivero reserva.jpg' %}" alt="Descripción de la imagen 3">
+            <p class="direccion">Dirección: Cl. 159 #19b - 30, Bogotá</p>
+        </div>
+        <div class="vivero">
+            <h2>Vivero Viveros de Colombia
+
+            </h2>
+            <img src="{% static 'images/Vivero Viveros de Colombia.jpg' %}" alt="Descripción de la imagen 3">
+            <p class="direccion">Dirección: Carrera 13d Sur #31g-28 Oficina 101, Bogotá</p>
+        </div>
+        <div class="vivero">
+            <h2>VIVERO PRODUPLANTAS
+            </h2>
+            <img src="{% static 'images/VIVERO PRODUPLANTAS.jpg' %}" alt="Descripción de la imagen 3">
+            <p class="direccion">Dirección: Cl. 180 #70-65, Suba, Bogotá, Cundinamarca</p>
+        </div>
+        <div class="vivero">
+            <h2>Vivero De La Sabana SAS
+            </h2>
+            <img src="{% static 'images/Vivero De La Sabana SAS.jpg' %}" alt="Descripción de la imagen 3">
+            <p class="direccion">Dirección:Cra. 7 # 234 -50, Usaquén, Bogotá, Cundinamarca</p>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 <a href="#">nahuatl</a>. Todos los derechos reservados.</p>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            text-align: center; /* Centrar el texto */
+            padding: 20px 0; /* Espaciado superior e inferior */
+            font-size: 14px; /* Tamaño del texto */
+            position: relative; /* Posicionamiento relativo para ajustes */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutiles */
+        }
+    
+        footer p {
+            margin: 0; /* Eliminar margen del párrafo */
+        }
+    
+        footer p a {
+            color: #01fc057c; /* Color verde similar al usado en los títulos */
+            text-decoration: none; /* Sin subrayado */
+            transition: color 0.3s ease; /* Transición suave en el hover */
+        }
+    
+        footer p a:hover {
+            color: #fff; /* Cambiar a blanco en hover */
+        }
+    </style>
+</body>
+</html>
+
+

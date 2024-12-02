@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Sembrado - Plantas en el Hogar</title>
+    <link rel="stylesheet" href="{% static 'estilo/sembrado.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="{% static 'images/nombre_iniciales.png' %}" alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+                <li><a href="{% url 'sembrado' %}">Sembrado</a></li>
+                <li><a href="{% url 'viveros' %}">Viveros</a></li>
+
+            </ul>
+            <div class="icons">
+                <a href="#"><img src="{% static 'images/persona.png' %}" alt="Idioma"></a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Usuario</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'registro' %}" id="register-link">Registrarse</a>
+                        <a href="{% url 'iniciar' %}" id="login-link">Iniciar Sesión</a> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Guía de Sembrado en Casa</h1>
+        
+        <section class="planta-guia" id="aloe-vera">
+            <h2>Aloe Vera</h2>
+            <img src="{% static 'images/aloe vera.jpg' %}" alt="Aloe Vera">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Seleccionar una maceta con drenaje</li>
+                        <li>Usar tierra para cactus</li>
+                        <li>Plantar a 5cm de profundidad</li>
+                        <li>Regar moderadamente</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz solar indirecta</li>
+                        <li>Riego cada 2-3 semanas</li>
+                        <li>Temperatura: 13-27°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('aloe-vera')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="orquideas">
+            <h2>Orquídeas</h2>
+            <img src="{% static 'images/Orquídeas.jpg' %}" alt="Orquídeas">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Usar maceta transparente especial para orquídeas</li>
+                        <li>Sustrato específico para orquídeas</li>
+                        <li>Mantener humedad ambiente</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz filtrada</li>
+                        <li>Riego semanal por inmersión</li>
+                        <li>Humedad: 50-70%</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('orquideas')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="cactus">
+            <h2>Cactus</h2>
+            <img src="{% static 'images/cactus.jpg' %}" alt="Cactus">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Elegir maceta con buen drenaje</li>
+                        <li>Usar sustrato para cactus</li>
+                        <li>Plantar superficialmente</li>
+                        <li>Esperar una semana antes del primer riego</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz solar directa</li>
+                        <li>Riego cada 2-4 semanas</li>
+                        <li>Temperatura: 15-35°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('cactus')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="helecho-boston">
+            <h2>Helecho de Boston</h2>
+            <img src="{% static 'images/Helecho de Boston.jpg' %}" alt="Helecho de Boston">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Usar maceta con buen drenaje</li>
+                        <li>Preparar sustrato rico en materia orgánica</li>
+                        <li>Mantener húmedo pero no encharcado</li>
+                        <li>Ubicar en zona sombreada</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz indirecta brillante</li>
+                        <li>Riego frecuente</li>
+                        <li>Temperatura: 16-24°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('helecho-boston')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="philodendron">
+            <h2>Philodendron</h2>
+            <img src="{% static 'images/Philodendron.jpg' %}" alt="Philodendron">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Elegir maceta mediana con drenaje</li>
+                        <li>Usar sustrato bien drenado</li>
+                        <li>Plantar a profundidad media</li>
+                        <li>Mantener humedad constante</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz indirecta brillante</li>
+                        <li>Riego cuando la superficie esté seca</li>
+                        <li>Temperatura: 18-30°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('philodendron')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="rosa">
+            <h2>Rosa</h2>
+            <img src="{% static 'images/rosa.jpg' %}" alt="Rosa">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Seleccionar maceta grande con drenaje</li>
+                        <li>Usar tierra rica en nutrientes</li>
+                        <li>Plantar a profundidad adecuada</li>
+                        <li>Podar regularmente</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz solar directa 6 horas</li>
+                        <li>Riego profundo 2-3 veces por semana</li>
+                        <li>Temperatura: 15-28°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('rosa')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="pothos">
+            <h2>Pothos</h2>
+            <img src="{% static 'images/Pothos.jpg' %}" alt="Pothos">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Elegir maceta con drenaje</li>
+                        <li>Usar sustrato universal</li>
+                        <li>Plantar esquejes o división</li>
+                        <li>Regar moderadamente</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz indirecta o artificial</li>
+                        <li>Riego cuando el sustrato esté seco</li>
+                        <li>Temperatura: 15-30°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('pothos')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+
+        <section class="planta-guia" id="zamioculca">
+            <h2>Zamioculca</h2>
+            <img src="{% static 'images/Zamioculca.jpg' %}" alt="Zamioculca">
+            <div class="guia-content">
+                <div class="pasos-cultivo">
+                    <h3>Pasos para el cultivo</h3>
+                    <ol>
+                        <li>Usar maceta con buen drenaje</li>
+                        <li>Preparar sustrato bien drenado</li>
+                        <li>Plantar a profundidad media</li>
+                        <li>Regar con moderación</li>
+                    </ol>
+                </div>
+                <div class="cuidados">
+                    <h3>Cuidados especiales</h3>
+                    <ul>
+                        <li>Luz indirecta o sombra</li>
+                        <li>Riego cada 2-3 semanas</li>
+                        <li>Temperatura: 15-28°C</li>
+                    </ul>
+                </div>
+                <button class="progress-tracker" onclick="iniciarSeguimiento('zamioculca')">
+                    Iniciar seguimiento de cultivo
+                </button>
+            </div>
+        </section>
+        
+    </main>
+    <div id="progreso-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Seguimiento de Cultivo</h2>
+            <form id="progreso-form" method="post" action="{% url 'sembrado' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="fecha-inicio">Fecha de inicio:</label>
+                    <input type="date" id="fecha-inicio" name="fecha_inicio" required>
+                </div>
+                <div class="form-group">
+                    <label for="notas">Notas de progreso:</label>
+                    <textarea id="notas" name="notas" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado actual:</label>
+                    <select id="estado" name="estado">
+                        <option value="plantado">Recién plantado</option>
+                        <option value="crecimiento">En crecimiento</option>
+                        <option value="floreciendo">Floreciendo</option>
+                        <option value="maduro">Maduro</option>
+                    </select>
+                </div>
+                <button type="submit">Guardar progreso</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <p>&copy; 2024 <a href="#">nahuatl</a>. Todos los derechos reservados.</p>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            text-align: center; /* Centrar el texto */
+            padding: 20px 0; /* Espaciado superior e inferior */
+            font-size: 14px; /* Tamaño del texto */
+            position: relative; /* Posicionamiento relativo para ajustes */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutiles */
+        }
+    
+        footer p {
+            margin: 0; /* Eliminar margen del párrafo */
+        }
+    
+        footer p a {
+            color: #01fc057c; /* Color verde similar al usado en los títulos */
+            text-decoration: none; /* Sin subrayado */
+            transition: color 0.3s ease; /* Transición suave en el hover */
+        }
+    
+        footer p a:hover {
+            color: #fff; /* Cambiar a blanco en hover */
+        }
+    </style>
+    <script src="{% static 'java/sembrado.js' %}" defer></script> <!-- Enlace al archivo JS -->
+
+</body>
+</html>

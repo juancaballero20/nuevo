@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'estilo/iniciar.css' %}"> <!-- Enlace al archivo CSS -->
+    <script src="{% static 'java/iniciar.js' %}" defer></script> <!-- Enlace al archivo JS -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="{% static 'images/nombre_iniciales.png' %}"alt="Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+                <li><a href="{% url 'sembrado' %}">Sembrado</a></li>
+                <li><a href="{% url 'viveros' %}">Viveros</a></li>
+            </ul>
+            <div class="icons">
+                <a href="#"><img src="{% static 'images/persona.png' %}" alt="Idioma"></a>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Usuario</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'registro' %}" id="register-link">Registrarse</a>
+                    <a href="{% url 'iniciar' %}" id="login-link">Iniciar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% else %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    
+
+        <div class="row">
+            <div class="col">
+                <h2>Inicio de sesión</h2>
+
+                <form method="post">
+										{% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Usuario</label>
+                        <input type="text" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Login</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+        <div class="carousel-section">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/4.jpg' %}" alt="Planta 1">
+                    <h3>Bienvenido de vuelta</h3>
+                    <p>Continúa tu viaje en el mundo de la jardinería y el cuidado de plantas.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/5.jpg' %}" alt="Planta 2">
+                    <h3>Tu jardín te espera</h3>
+                    <p>Accede a tu cuenta para continuar aprendiendo y compartiendo experiencias.</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 <a href="#">nahuatl</a>. Todos los derechos reservados.</p>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            text-align: center; /* Centrar el texto */
+            padding: 20px 0; /* Espaciado superior e inferior */
+            font-size: 14px; /* Tamaño del texto */
+            position: relative; /* Posicionamiento relativo para ajustes */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutiles */
+        }
+    
+        footer p {
+            margin: 0; /* Eliminar margen del párrafo */
+        }
+    
+        footer p a {
+            color: #01fc057c; /* Color verde similar al usado en los títulos */
+            text-decoration: none; /* Sin subrayado */
+            transition: color 0.3s ease; /* Transición suave en el hover */
+        }
+    
+        footer p a:hover {
+            color: #fff; /* Cambiar a blanco en hover */
+        }
+    </style>
+    
+    </body>
+    </html>

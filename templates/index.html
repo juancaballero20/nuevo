@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Plantas y Ecología en el Hogar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{% static 'estilo/index.css' %}">
+</head>
+<body>
+
+<header>
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="{% static 'images/nombre_iniciales.png' %}" alt="Logo">
+        </div>
+        <ul class="menu">
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+            <li><a href="{% url 'sembrado' %}">Sembrado</a></li>
+            <li><a href="{% url 'viveros' %}">Viveros</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><img src="{% static 'images/persona.png' %}" alt="Idioma"></a>
+            <div class="dropdown">
+                <button class="dropbtn">Usuario</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'registro' %}" id="register-link">Registrarse</a>
+                    <a href="{% url 'iniciar' %}" id="login-link">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Bienvenido a Nahuatl, tu guía ecológica</h1>
+</div>
+
+<div class="carousel-container">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="{% url 'catalogo' %}">
+                    <img src="{% static 'images/catalogo_plant.jpg' %}" alt="Imagen de plantas">
+                </a>
+                <p>Catálogo de plantas para el hogar</p>
+            </div>
+            <div class="swiper-slide">
+                <a href="{% url 'sembrado' %}">
+                    <img src="{% static 'images/sembrado_plant.jpg' %}" alt="Guía de sembrado">
+                </a>
+                <p>Aprende a sembrar y cuidar tus plantas desde casa</p>
+            </div>
+            <div class="swiper-slide">
+                <a href="{% url 'viveros' %}">
+                    <img src="{% static 'images/vivero_plant.png' %}" alt="Ecología en el hogar">
+                </a>
+                <p>Los mejores viveros para conseguir plantas</p>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<!-- Sección de Descripciones -->
+<div class="section">
+    <h2>Descubre Nuestro Gran Catálogo </h2>
+    <p><a href="{% url 'catalogo' %}">Catálogo:</a> Explora una gran variedad de plantas que se pueden sembrar desde tu hogar, inclusive puedes seguir todo el procedimiento de tu planta desde nuestro apartado:</p>
+    <p><a href="{% url 'sembrado' %}">Seguimiento sembrado</a>
+    
+
+<!-- Segundo Carrusel -->
+<div class="carousel-container">
+    <div class="swiper mySecondSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="{% url 'registro' %}">
+                    <img src="{% static 'images/comunidad.jpg' %}" alt="registro">
+                </a>
+                <p>Unete a nuestra comunidad registrandote en la pagina</p>
+            </div>
+            <div class="swiper-slide">
+                <a href="{% url 'iniciar' %}">
+                    <img src="{% static 'images/inicio.jpg' %}" alt="Sesión">
+                </a>
+                <p>¿Ya eres parte de la comunidad?</p>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<!-- Sección de Descripciones -->
+<div class="section">
+    <h2>Secciones Extras</h2>
+    <p><a href="{% url 'iniciar' %}">Iniciar sesion en el sitio:</a> Sigue con todo tu proceso desde lo dejaste, con tu cuenta.</p>
+    <p><a href="{% url 'registro' %}">Registrarse</a> No quieres perder tu proceso? Registrate y no tendras que empezar de cero. </p>
+</div>
+
+<footer>
+    <p>&copy; 2024 <a href="#">nahuatl</a>. Todos los derechos reservados.</p>
+</footer>
+
+<style>
+    footer {
+        background-color: #000; /* Fondo negro */
+        color: #fff; /* Texto blanco */
+        text-align: center; /* Centrar el texto */
+        padding: 20px 0; /* Espaciado superior e inferior */
+        font-size: 14px; /* Tamaño del texto */
+        position: relative; /* Posicionamiento relativo para ajustes */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutiles */
+    }
+
+    footer p {
+        margin: 0; /* Eliminar margen del párrafo */
+    }
+
+    footer p a {
+        color: #01fc057c; /* Color verde similar al usado en los títulos */
+        text-decoration: none; /* Sin subrayado */
+        transition: color 0.3s ease; /* Transición suave en el hover */
+    }
+
+    footer p a:hover {
+        color: #fff; /* Cambiar a blanco en hover */
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="{% static 'java/scripts.js' %}"></script>
+<script>
+    // Inicialización del primer carrusel
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        autoplay: { delay: 5000, disableOnInteraction: false }
+    });
+
+    // Inicialización del segundo carrusel
+    const secondSwiper = new Swiper(".mySecondSwiper", {
+        loop: true,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        autoplay: { delay: 5000, disableOnInteraction: false }
+    });
+</script>
+
+</body>
+</html>

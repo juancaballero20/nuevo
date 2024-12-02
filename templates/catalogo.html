@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encabezado de Menú y Productos</title>
+    <link rel="stylesheet" href="{% static 'estilo/catalogo.css' %}"> <!-- Enlace al archivo CSS -->
+    <script src="{% static 'java/formulario.js' %}" defer></script> <!-- Enlace al archivo JS -->
+</head>
+<body>
+
+<header>
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="{% static 'images/nombre_iniciales.png' %}" alt="Logo">
+        </div>
+        <ul class="menu">
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'catalogo' %}">Catálogo</a></li>
+            <li><a href="{% url 'sembrado' %}">Sembrado</a></li>
+            <li><a href="{% url 'viveros' %}">Viveros</a></li>
+        </ul>
+        <div class="icons">
+            <a href="#"><img src="{% static 'images/persona.png' %}" alt="Idioma"></a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Usuario</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'registro' %}" id="register-link">Registrarse</a>
+                    <a href="{% url 'iniciar' %}" id="login-link">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<h2>Flores</h2>
+
+<section class="product-section">
+    <div class="product" onclick="showDetails('Aloe Vera', 'Aloe vera es una planta suculenta conocida por sus propiedades medicinales. Se utiliza comúnmente para tratar quemaduras y problemas de piel.','Para plantar Aloe Vera, elige un lugar soleado y un suelo bien drenado. Evita el exceso de riego.');">
+        <a href="#">
+            <img src="{% static 'images/aloe vera.jpg' %}" alt="Producto 1">
+        </a>
+        <div class="details">Detalles del Aloe Vera</div>
+    </div>
+    <div class="product" onclick="showDetails('Orquídeas', 'Las orquídeas son plantas de flores hermosas que requieren cuidados específicos de humedad y luz.', 'Planta las orquídeas en un sustrato bien aireado y en un lugar con luz indirecta.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/Orquídeas.jpg' %}" alt="Producto 2">
+        </a>
+        <div class="details">Detalles de las Orquídeas</div>
+    </div>
+    <div class="product" onclick="showDetails('Cactus', 'Los cactus son plantas adaptadas a climas áridos y se caracterizan por sus tallos gruesos y suculentos que almacenan agua.', 'Planta los cactus en suelos arenosos y con buen drenaje, evita regarlos en exceso.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/cactus.jpg' %}" alt="Producto 3">
+        </a>
+        <div class="details">Detalles del Cactus</div>
+    </div>
+    <div class="product" onclick="showDetails('Helecho de Boston', 'El helecho de Boston es una planta ornamental conocida por sus hojas largas y suaves. Prefiere ambientes húmedos.', 'El helecho de Boston debe plantarse en suelos ricos y húmedos, con sombra parcial.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/Helecho de Boston.jpg' %}" alt="Producto 4">
+        </a>
+        <div class="details">Detalles del Helecho De Boston</div>
+    </div>
+    <div class="product" onclick="showDetails('Philodendron', 'El philodendron es una planta de interior muy popular debido a su resistencia y facilidad de cuidado.', 'Planta el philodendron en suelos bien drenados y en un lugar con luz indirecta.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/Philodendron.jpg' %}" alt="Producto 5">
+        </a>
+        <div class="details">Detalles del Philodendron</div>
+    </div>
+    <div class="product" onclick="showDetails('Rosa', 'La rosa es una planta ornamental muy apreciada por sus flores coloridas y su fragancia.', 'Planta las rosas en suelos fértiles y bien drenados, y asegúrate de darles suficiente sol.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/rosa.jpg' %}" alt="Producto 6">
+        </a>
+        <div class="details">Detalles de la Rosa</div>
+    </div>
+    <div class="product" onclick="showDetails('Pothos', 'El pothos es una planta de interior fácil de cuidar, ideal para principiantes. Sus hojas son en forma de corazón.', 'Planta el pothos en un suelo bien drenado y coloca la maceta en un lugar cálido y soleado.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/Pothos.jpg' %}" alt="Producto 7">
+        </a>
+        <div class="details">Detalles del Pothos</div>
+    </div>
+    <div class="product" onclick="showDetails('Zamioculca', 'La zamioculca es una planta resistente a la sequía, ideal para quienes no tienen mucha experiencia en jardinería.', 'Esta planta necesita muy poco riego. Puedes plantarla en suelos bien aireados y en lugares con poca luz.', '{{ sembrado_url }}');">
+        <a href="#">
+            <img src="{% static 'images/Zamioculca.jpg' %}" alt="Producto 8">
+        </a>
+        <div class="details">Detalles de la Zamioculca</div>
+    </div>
+</section>
+
+<!-- Modal para mostrar detalles del producto -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modal-title">Nombre de la Planta</h3> <!-- Título de la planta -->
+        <p id="modal-description">Breve descripción sobre la planta.</p> <!-- Descripción breve -->
+        <p id="modal-planting">Cómo sembrar: Breve descripción del proceso de siembra.</p> <!-- Cómo sembrar -->
+        <a id="modal-link" href="#" target="_blank"></a> <!-- Enlace a la guía -->
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 <a href="#">nahuatl</a>. Todos los derechos reservados.</p>
+</footer>
+
+<style>
+    footer {
+        background-color: #000; /* Fondo negro */
+        color: #fff; /* Texto blanco */
+        text-align: center; /* Centrar el texto */
+        padding: 20px 0; /* Espaciado superior e inferior */
+        font-size: 14px; /* Tamaño del texto */
+        position: relative; /* Posicionamiento relativo para ajustes */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutiles */
+    }
+
+    footer p {
+        margin: 0; /* Eliminar margen del párrafo */
+    }
+
+    footer p a {
+        color: #01fc057c; /* Color verde similar al usado en los títulos */
+        text-decoration: none; /* Sin subrayado */
+        transition: color 0.3s ease; /* Transición suave en el hover */
+    }
+
+    footer p a:hover {
+        color: #fff; /* Cambiar a blanco en hover */
+    }
+</style>
+
+</body>
+</html>
